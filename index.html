@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+</head>
+<link rel="stylesheet" href="Ecom_style.css">
+<body>
+  <div class="container">
+
+    <div class="topbar">
+      <div class="brand">
+        <h1>ClassicCart</h1>
+        <p>Simple order system with beautiful history, delete option, and AI spending analyzer.</p>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h2>Order your exam essentials with style</h2>
+          <p>
+            Choose products, place orders instantly, view complete order history, delete unwanted orders,
+            and analyze your weekly spending with a smart AI-style summary.
+          </p>
+        </div>
+
+        <div class="hero-badge-box">
+          <div class="hero-badge">
+            <strong id="topTotalOrders">0</strong>
+            <span>Total Orders</span>
+          </div>
+          <div class="hero-badge">
+            <strong id="topTotalSpent">₹0</strong>
+            <span>Total Spent</span>
+          </div>
+          <div class="hero-badge">
+            <strong id="topMostBought">None</strong>
+            <span>Top Product</span>
+          </div>
+          <div class="hero-badge">
+            <strong id="topWeekSpent">₹0</strong>
+            <span>This Week</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="main-grid">
+      <div>
+        <section class="card">
+          <h3>Available Products</h3>
+          <div class="products-grid" id="productsGrid"></div>
+        </section>
+
+        <section class="card" style="margin-top: 24px;">
+          <h3>Order History</h3>
+
+          <div class="history-header">
+            <p style="color: var(--muted);">See all previous orders. You can delete any single order or clear all history.</p>
+            <button class="btn-danger" onclick="clearAllOrders()">Clear All History</button>
+          </div>
+
+          <div class="history-list" id="historyList"></div>
+        </section>
+      </div>
+
+      <div>
+        <section class="card">
+          <h3>Place Order</h3>
+
+          <div class="form-group">
+            <label for="productSelect">Select Product</label>
+            <select id="productSelect"></select>
+          </div>
+
+          <div class="form-group">
+            <label for="quantityInput">Quantity</label>
+            <input type="number" id="quantityInput" min="1" value="1" />
+          </div>
+
+          <div class="selected-preview" id="selectedPreview">
+            Select a product to see price details.
+          </div>
+
+          <div class="btn-row">
+            <button class="btn-primary" onclick="placeOrder()">Place Order</button>
+            <button class="btn-secondary" onclick="resetForm()">Reset</button>
+          </div>
+
+          <div id="messageBox" class="message-box"></div>
+        </section>
+
+        <section class="card" style="margin-top: 24px;">
+          <h3>🧠 AI Spending Analyzer</h3>
+          <p style="color: var(--muted); margin-bottom: 14px;">
+            Smart summary based on your local order history.
+          </p>
+
+          <div class="analyzer-grid">
+            <div class="analyzer-card">
+              <span>This Week Spending</span>
+              <strong id="weekSpending">₹0</strong>
+            </div>
+
+            <div class="analyzer-card">
+              <span>Most Bought Item</span>
+              <strong id="mostBought">None</strong>
+            </div>
+
+            <div class="analyzer-card">
+              <span>Weekly Average</span>
+              <strong id="weeklyAverage">₹0</strong>
+            </div>
+          </div>
+
+          <div class="warning-box" id="warningBox"></div>
+        </section>
+      </div>
+    </div>
+
+  </div>
+  <script src="Ecom.js"></script>
+</body>
+</html>
